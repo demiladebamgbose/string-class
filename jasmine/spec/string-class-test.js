@@ -25,4 +25,12 @@ describe('String Class', function () {
     });
   });
 
+  describe('ucFirst function', function () {
+    it('should capitalize only the first letter of a string', function () {
+      expect('gold'.ucFirst()).toEqual('Gold');
+      expect('GOLDEN'.ucFirst()).toEqual('Golden');
+      expect('goLd PlaTTed'.ucFirst()).toEqual('Gold platted');
+      expect('a'.ucFirst()).toBe('A');
+    });
+  });
 });
