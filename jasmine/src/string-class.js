@@ -21,3 +21,9 @@ String.prototype.toLower = function () {
   	return letter;
   });
 };
+
+String.prototype.ucFirst = function () {
+  var first = this.substring(0,1).toUpper();
+  var body = this.substring(1).toLower();
+  return this.replace( /^./, first).replace(/(?!(^))(.*)$/, body);
+};
