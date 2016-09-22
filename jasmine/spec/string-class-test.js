@@ -10,4 +10,12 @@ describe('String Class', function () {
       expect('Dry'.hasVowels()).toBe(false);
     });
   });
+
+  describe('toUpper function', function  () {
+    it('should capitalize all the letters of a string', function () {
+      expect('gentle'.toUpper()).toEqual('GENTLE');
+      expect('gEnTle'.toUpper()).toEqual('GENTLE');
+    });
+  });
+  
 });
