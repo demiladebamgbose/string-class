@@ -5,3 +5,11 @@ String.prototype.hasVowels = function () {
   }
   return false;
 };
+
+String.prototype.toUpper = function () {
+  var lowerExp = /[a-z]/g;
+  return this.replace(lowerExp, function (letter) {
+  	letter = String.fromCharCode(letter.charCodeAt(letter) - 32);
+  	return letter;
+  });
+};
