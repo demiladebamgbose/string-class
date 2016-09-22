@@ -27,3 +27,8 @@ String.prototype.ucFirst = function () {
   var body = this.substring(1).toLower();
   return this.replace( /^./, first).replace(/(?!(^))(.*)$/, body);
 };
+
+String.prototype.isQuestion = function () {
+	queExp = /.+(\?)$/;
+	return queExp.test(this);
+};

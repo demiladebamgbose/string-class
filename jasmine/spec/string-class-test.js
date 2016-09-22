@@ -33,4 +33,15 @@ describe('String Class', function () {
       expect('a'.ucFirst()).toBe('A');
     });
   });
+
+  describe('isQuestion function',function () {
+    it('should return true for questions',function () {
+      expect('Where?'.isQuestion()).toBeTruthy();
+    });
+    it('should return false for a statement',function () {
+      expect('A big crowd.'.isQuestion()).toBeFalsy();
+      expect('?'.isQuestion()).toBeFalsy();
+    });
+  });
+
 });
