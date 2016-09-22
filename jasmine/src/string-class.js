@@ -13,3 +13,11 @@ String.prototype.toUpper = function () {
   	return letter;
   });
 };
+
+String.prototype.toLower = function () {
+  var upperExp = /[A-Z]/g;
+  return this.replace(upperExp, function (letter) {
+  	letter = String.fromCharCode(letter.charCodeAt(letter) + 32);
+  	return letter;
+  });
+};

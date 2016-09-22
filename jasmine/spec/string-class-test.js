@@ -17,5 +17,12 @@ describe('String Class', function () {
       expect('gEnTle'.toUpper()).toEqual('GENTLE');
     });
   });
-  
+
+  describe('toLower function', function  () {
+    it('should letters of a string in lower case', function () {
+      expect('GRAND'.toLower()).toEqual('grand');
+      expect('GrandE'.toLower()).toEqual('grande');
+    });
+  });
+
 });
