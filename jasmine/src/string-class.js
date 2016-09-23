@@ -34,7 +34,7 @@ String.prototype.isQuestion = function () {
 };
 
 String.prototype.words = function () {
-  if(this.length > 0){
+  if (this.length > 0){
     return this.replace(/\s+/g, " ").split(/\s/);
   }
   return [];
@@ -42,4 +42,14 @@ String.prototype.words = function () {
 
 String.prototype.wordCount = function() {
 	return this.words().length;
+};
+
+String.prototype.toCurrency = function () {
+  if (/^(\d*\.\d{2})$/.test(this)) {
+    var value = this.split(/\./);
+  	var currExp = /\B(?=(\d{3})+$)/g;
+  	value[0] = value[0].replace(currExp, ',');
+    return value.join('.');
+  }
+  throw new Error('Improper input format');
 };
