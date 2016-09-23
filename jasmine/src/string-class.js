@@ -60,3 +60,13 @@ String.prototype.fromCurrency = function() {
 	}
 	throw new Error('Improper input format');
 };
+
+String.prototype.inverseCase = function () {
+  var switchCase = function (letter) {
+	  if (/[A-Z]/.test(letter)) {
+		  return letter.toLower();
+	  }
+	  return letter.toUpper();
+	};
+	 return this.split(/()/).map(switchCase).join('');
+};

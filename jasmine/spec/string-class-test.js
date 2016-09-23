@@ -89,4 +89,11 @@ describe('String Class', function () {
     });
   });
 
+  describe('inverseCase function', function () {
+    it('should return inverse case for each letter in a string', function () {
+      expect('Mr. Ben.'.inverseCase()).toEqual('mR. bEN.');
+      expect('aDDidAS! 678'.inverseCase()).toEqual('AddIDas! 678');
+    });
+  });
+
 });
