@@ -44,4 +44,19 @@ describe('String Class', function () {
     });
   });
 
+  describe('words function', function () {
+    it('should return an array of all the words in a string', function () {
+      expect(Array.isArray('Oliver Twist'.words())).toBe(true);
+      expect('This is sugar'.words()).toEqual(['This', 'is', 'sugar']);
+      expect(''.words()).toEqual([]);
+    });
+  });
+
+  describe('wordCount function', function () {
+    it('should return the number of words in a string', function () {
+      expect('I was here'.wordCount()).toBe(3);
+      expect(''.wordCount()).toBe(0);
+    });
+  });
+
 });
