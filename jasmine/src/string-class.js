@@ -32,3 +32,14 @@ String.prototype.isQuestion = function () {
 	queExp = /.+(\?)$/;
 	return queExp.test(this);
 };
+
+String.prototype.words = function () {
+  if(this.length > 0){
+    return this.replace(/\s+/g, " ").split(/\s/);
+  }
+  return [];
+};
+
+String.prototype.wordCount = function() {
+	return this.words().length;
+};
