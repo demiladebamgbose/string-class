@@ -53,3 +53,10 @@ String.prototype.toCurrency = function () {
   }
   throw new Error('Improper input format');
 };
+
+String.prototype.fromCurrency = function() {
+	if (/^[\d,]+\.\d{2}$/.test(this)) {
+		return parseFloat(this.split(/,/g).join(''));
+	}
+	throw new Error('Improper input format');
+};
