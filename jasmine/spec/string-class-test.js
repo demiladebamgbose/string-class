@@ -73,5 +73,20 @@ describe('String Class', function () {
         }).toThrow(new Error('Improper input format'));
     });
   });
-  
+
+  describe('fromCurrency function', function () {
+    it('should return a number equivalent of the currency string', function () {
+      expect('111,111.11'.fromCurrency()).toBe(111111.11);
+      expect('1,111,111.01'.fromCurrency()).toBe(1111111.01);
+    });
+    it('should throw an error for an improperly formarted string', function () {
+      expect(function () {
+          'ddd.12'.fromCurrency();
+        }).toThrow(new Error('Improper input format'));
+      expect(function () {
+          '4.560'.fromCurrency();
+        }).toThrow(new Error('Improper input format'));
+    });
+  });
+
 });
