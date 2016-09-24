@@ -28,7 +28,7 @@ describe('String Class', function () {
   describe('ucFirst function', function () {
     it('should capitalize only the first letter of a string', function () {
       expect('gold'.ucFirst()).toEqual('Gold');
-      expect('GOLDEN'.ucFirst()).toEqual('Golden');
+      expect('G!OLD4EN'.ucFirst()).toEqual('G!old4en');
       expect('goLd PlaTTed'.ucFirst()).toEqual('Gold platted');
       expect('a'.ucFirst()).toBe('A');
     });
@@ -118,11 +118,21 @@ describe('String Class', function () {
     });
   });
 
+  describe('numberWords function', function () {
+    it('should return the words for each digit in a string', function () {
+      expect('456'.numberWords()).toBe('four five six');
+    });
+    it('should throw an error if string contains letters', function () {
+      expect(function () {
+        'gr89!'.numberWords();
+      }).toThrow(new Error('improper input format'));
+    });
+  });
+
   describe('doubleCheack function', function () {
     it('should return true if string contains double characters', function () {
       expect('green'.doubleCheck()).toBe(true);
       expect('red'.doubleCheck()).toBe(false);
     });
   });
-
 });
