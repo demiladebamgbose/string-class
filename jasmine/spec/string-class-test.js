@@ -102,3 +102,10 @@ describe('String Class', function () {
     });
   });
 });
+
+describe('getMiddle function', function () {
+  it('should return the letters in the middle of a string', function () {
+    expect('read'.getMiddle()).toBe('ea');
+    expect('reads'.getMiddle()).toBe('a');
+  });
+});
