@@ -68,5 +68,15 @@ String.prototype.inverseCase = function () {
 	  }
 	  return letter.toUpper();
 	};
-	 return this.split(/()/).map(switchCase).join('');
+	 return this.split(/(?!^)/).map(switchCase).join('');
+};
+
+String.prototype.alternateCase = function () {
+  var changeCase = function (letter, index) {
+	  if (index % 2 === 0) {
+		  return letter.toLower();
+	  }
+	  return letter.toUpper();
+	};
+	 return this.split(/(?!^)/).map(changeCase).join('');
 };

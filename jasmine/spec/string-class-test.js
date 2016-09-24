@@ -96,4 +96,9 @@ describe('String Class', function () {
     });
   });
 
+  describe('alternateCase function', function () {
+    it('should return letters in aternating cases', function () {
+      expect('Onomatopoeia2!'.alternateCase()).toBe( 'oNoMaToPoEiA2!');
+    });
+  });
 });
