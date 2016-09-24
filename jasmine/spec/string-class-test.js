@@ -101,11 +101,18 @@ describe('String Class', function () {
       expect('Onomatopoeia2!'.alternateCase()).toBe( 'oNoMaToPoEiA2!');
     });
   });
-});
 
-describe('getMiddle function', function () {
-  it('should return the letters in the middle of a string', function () {
-    expect('read'.getMiddle()).toBe('ea');
-    expect('reads'.getMiddle()).toBe('a');
+  describe('getMiddle function', function () {
+    it('should return the letters in the middle of a string', function () {
+      expect('read'.getMiddle()).toBe('ea');
+      expect('reads'.getMiddle()).toBe('a');
+    });
+  });
+
+  describe('doubleCheack function', function () {
+    it('should return true if string contains double characters', function () {
+      expect('green'.doubleCheck()).toBe(true);
+      expect('red'.doubleCheck()).toBe(false);
+    });
   });
 });

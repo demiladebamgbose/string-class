@@ -89,3 +89,8 @@ String.prototype.getMiddle = function () {
 	}
 	return result[parseInt(length)].toString();
 };
+
+String.prototype.doubleCheck = function () {
+	var doubleExp = /(\w)\1{1}/;
+	return doubleExp.test(this);
+};
