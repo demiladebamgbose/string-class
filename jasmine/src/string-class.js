@@ -80,3 +80,12 @@ String.prototype.alternateCase = function () {
 	};
 	 return this.split(/(?!^)/).map(changeCase).join('');
 };
+
+String.prototype.getMiddle = function () {
+	var result = this.split(/(?!^)/);
+	var length = result.length/2;
+	if (length % 2 === 0) {
+		return result.slice((length)-1, (length)+1).join('');
+	}
+	return result[parseInt(length)].toString();
+};
