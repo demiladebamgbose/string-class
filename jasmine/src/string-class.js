@@ -90,6 +90,11 @@ String.prototype.getMiddle = function () {
 	return result[parseInt(length)].toString();
 };
 
+String.prototype.isDigit = function () {
+	var digitExp = /^\d{1}$/;
+	return digitExp.test(this);
+};
+
 String.prototype.doubleCheck = function () {
 	var doubleExp = /(\w)\1{1}/;
 	return doubleExp.test(this);
