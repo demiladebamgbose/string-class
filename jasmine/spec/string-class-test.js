@@ -109,10 +109,20 @@ describe('String Class', function () {
     });
   });
 
+  describe('isDigit function', function () {
+    it('should return true for a single digit string', function () {
+      expect('3'.isDigit()).toBe(true);
+      expect('34'.isDigit()).toBe(false);
+      expect('bee'.isDigit()).toBe(false);
+      expect('e'.isDigit()).toBe(false);
+    });
+  });
+
   describe('doubleCheack function', function () {
     it('should return true if string contains double characters', function () {
       expect('green'.doubleCheck()).toBe(true);
       expect('red'.doubleCheck()).toBe(false);
     });
   });
+
 });
