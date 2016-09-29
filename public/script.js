@@ -1,5 +1,4 @@
 (function () {
-
   // Prepare all event listeners.
   function start () {
     document.addEventListener('click', handleClick, false);
