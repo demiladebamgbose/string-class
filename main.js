@@ -1,6 +1,5 @@
 var express = require('express'),
-    http = require('http');
-var app = express();
+    app = express();
 
 app.use(express.static('public'));
 
@@ -9,5 +8,6 @@ app.get('/', function (req, res) {
   });
 
 
-
-http.createServer(app).listen(8080);
+app.listen(8080, function(){
+  console.log('Server started on port 8080');
+});
