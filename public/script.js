@@ -178,7 +178,7 @@
       case 'doubleCheck':
         try {
           var value = getDomContent('stringInput').doubleCheck();
-          
+
           showResult(value);
         }
         catch (error) {
