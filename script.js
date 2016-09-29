@@ -1,22 +1,43 @@
 (function () {
-  
+
+  // Prepare all event listeners.
   function start () {
     document.addEventListener('click', handleClick, false);
   }
 
+  /**
+    * @method handleClick
+    *
+    * Handle click event for dropdown menu.
+    *
+    * @param {String} e
+    * @return {Void}
+    */
   var handleClick = function (e) {
     var methods = ['hasVowels', 'toUpper', 'toLower', 'ucFirst',
-      'isQuestion', 'words', 'wordCount', 'toCurrency', 'fromCurrency', 'inverseCase', 'alternateCase', 'getMiddle', 'isDigit', 'numberWords', 'doubleCheck'];
+      'isQuestion', 'words', 'wordCount', 'toCurrency', 'fromCurrency',
+      'inverseCase', 'alternateCase', 'getMiddle', 'isDigit',
+      'numberWords', 'doubleCheck'];
+
     if (methods.indexOf(e.target.id) !== -1) {
       performSwitch(e.target.id);
     }
   };
 
+  /**
+    * @method performSwitch
+    *
+    * Switches cases based on the clicked id.
+    *
+    * @param {String} clickedId
+    * @return {Void}
+    */
   var performSwitch = function (clickedId) {
     switch (clickedId) {
       case 'hasVowels':
         try {
           var value = getDomContent('stringInput').hasVowels();
+
           showResult(value);
         }
         catch (error) {
@@ -26,6 +47,7 @@
       case 'toUpper':
         try {
           var value = getDomContent('stringInput').toUpper();
+
           showResult(value);
         }
         catch (error) {
@@ -35,6 +57,7 @@
       case 'toLower':
         try {
           var value = getDomContent('stringInput').toLower();
+
           showResult(value);
         }
         catch(error){
@@ -44,6 +67,7 @@
       case 'ucFirst':
         try {
           var value = getDomContent('stringInput').ucFirst();
+
           showResult(value);
         }
         catch (error) {
@@ -54,6 +78,7 @@
       case 'isQuestion':
         try {
           var value = getDomContent('stringInput').isQuestion();
+
           showResult(value);
         }
         catch (error) {
@@ -63,6 +88,7 @@
       case 'words':
         try {
           var value = getDomContent('stringInput').words();
+
           showResult(value);
         }
         catch (error ) {
@@ -72,6 +98,7 @@
       case 'wordCount':
         try {
           var value = getDomContent('stringInput').wordCount();
+
           showResult(value);
         }
         catch (error) {
@@ -81,6 +108,7 @@
       case 'toCurrency':
         try {
           var value = getDomContent('stringInput').toCurrency();
+
           showResult(value);
         }
         catch (error) {
@@ -90,6 +118,7 @@
       case 'fromCurrency':
         try {
           var value = getDomContent('stringInput').fromCurrency();
+
           showResult(value);
         }
         catch (error) {
@@ -99,6 +128,7 @@
       case 'inverseCase':
         try {
           var value = getDomContent('stringInput').inverseCase();
+
           showResult(value);
         }
         catch (error) {
@@ -108,6 +138,7 @@
       case 'alternateCase':
         try {
           var value = getDomContent('stringInput').alternateCase();
+
           showResult(value);
         }
         catch (error) {
@@ -117,6 +148,7 @@
       case 'getMiddle':
         try {
           var value = getDomContent('stringInput').getMiddle();
+
           showResult(value);
         }
         catch (error) {
@@ -126,6 +158,7 @@
       case 'isDigit':
         try {
           var value = getDomContent('stringInput').isDigit();
+
           showResult(value);
         }
         catch (error) {
@@ -135,6 +168,7 @@
       case 'numberWords':
         try {
           var value = getDomContent('stringInput').numberWords();
+
           showResult(value);
         }
         catch (error) {
@@ -144,6 +178,7 @@
       case 'doubleCheck':
         try {
           var value = getDomContent('stringInput').doubleCheck();
+          
           showResult(value);
         }
         catch (error) {
@@ -154,14 +189,31 @@
         }
   };
 
-      var getDomContent = function (id) {
-        return document.getElementById(id).innerHTML ||
-          document.getElementById(id).value;
-      };
+  /**
+    * @method getDomContent
+    *
+    * Return DOM content based on id.
+    *
+    * @param {String} id
+    * @return {Sring}
+    */
+  var getDomContent = function (id) {
+    return document.getElementById(id).innerHTML ||
+      document.getElementById(id).value;
+  };
 
-      var showResult = function (value) {
-        document.getElementById('result').innerHTML  = value;
-      };
+  /**
+    * @method showResult
+    *
+    * Displays value in the DOM.
+    *
+    * @param {String} value
+    * @return {Void}
+    */
+  var showResult = function (value) {
+    document.getElementById('result').innerHTML  = value;
+  };
 
-      window.addEventListener('load', start, false);
-    })();
+  //Add an onLoad event to the window object
+  window.addEventListener('load', start, false);
+})();

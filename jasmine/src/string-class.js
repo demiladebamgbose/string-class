@@ -1,4 +1,11 @@
-
+/**
+  * @method hasVowels
+  *
+  * Checks if a string contains vowels.
+  *
+  * @param {String}
+  * @return {Bolean} returns true/false
+  */
 String.prototype.hasVowels = function () {
   'use strict';
   var vowelExp = /[aeiou]/i;
@@ -6,6 +13,14 @@ String.prototype.hasVowels = function () {
   return vowelExp.test(this);
 };
 
+/**
+  * @method toUpper
+  *
+  * Returns uppercase of characters in a string.
+  *
+  * @param {String}
+  * @return {String}
+  */
 String.prototype.toUpper = function () {
   'use strict';
   var lowerExp = /[a-z]/g;
@@ -17,6 +32,14 @@ String.prototype.toUpper = function () {
   });
 };
 
+/**
+  * @method toLower
+  *
+  * Returns lower case of characters in a string.
+  *
+  * @param {String}
+  * @return {String}
+  */
 String.prototype.toLower = function () {
   'use strict';
   var upperExp = /[A-Z]/g;
@@ -28,6 +51,14 @@ String.prototype.toLower = function () {
   });
 };
 
+/**
+  * @method ucFirst
+  *
+  * Returns a string with the first character capitalized.
+  *
+  * @param {String}
+  * @return {String}
+  */
 String.prototype.ucFirst = function () {
   'use strict';
   var first = this.substring(0,1).toUpper();
@@ -36,6 +67,14 @@ String.prototype.ucFirst = function () {
   return this.replace( /^./, first).replace(/(?!(^))(.*)$/, body);
 };
 
+/**
+  * @method isQuestion
+  *
+  * Checks if a string is a question.
+  *
+  * @param {String}
+  * @return {Boolean} returns true/false
+  */
 String.prototype.isQuestion = function () {
   'use strict';
 	var queExp = /^.+\?$/;
@@ -43,6 +82,14 @@ String.prototype.isQuestion = function () {
 	return queExp.test(this);
 };
 
+/**
+  * @method words
+  *
+  * Returns an array of the words in a string.
+  *
+  * @param {String}
+  * @return {Array}
+  */
 String.prototype.words = function () {
   'use strict';
   if (this.length > 0){
@@ -54,26 +101,49 @@ String.prototype.words = function () {
   return [];
 };
 
+/**
+  * @method wordCount
+  *
+  * The number of words in a string.
+  *
+  * @param {String}
+  * @return {Number}
+  */
 String.prototype.wordCount = function() {
   'use strict';
 	return this.words().length;
 };
 
+/**
+  * @method toCurrency
+  *
+  * Returns the currency representation  of a string.
+  *
+  * @param {String}
+  * @return {String}
+  */
 String.prototype.toCurrency = function () {
   'use strict';
   if (/^(\d*\.\d{2})$/.test(this)) {
     var value = this.split(/\./);
   	var currExp = /\B(?=(\d{3})+$)/g;
-    console.log(value);
+
   	value[0] = value[0].replace(currExp, ',');
-    console.log(value[0]);
-    console.log(value);
+
     return value.join('.');
   }
 
   throw new Error('Improper input format');
 };
 
+/**
+  * @method fromCurrency
+  *
+  * Returns the number equivalent of a currency string.
+  *
+  * @param {String}
+  * @return {String}
+  */
 String.prototype.fromCurrency = function() {
   'use strict';
 	if (/^[\d,]+\.\d{2}$/.test(this)) {
@@ -83,6 +153,14 @@ String.prototype.fromCurrency = function() {
 	throw new Error('Improper input format');
 };
 
+/**
+  * @method inverseCase
+  *
+  * Returns a string in inverse case.
+  *
+  * @param {String}
+  * @return {String}
+  */
 String.prototype.inverseCase = function () {
   'use strict';
   var switchCase = function (letter) {
@@ -97,6 +175,14 @@ String.prototype.inverseCase = function () {
 	 return this.split(/(?!^)/).map(switchCase).join('');
 };
 
+/**
+  * @method alternateCase
+  *
+  * Returns a sting in alternting cases.
+  *
+  * @param {String}
+  * @return {String}
+  */
 String.prototype.alternateCase = function () {
   'use strict';
   var changeCase = function (letter, index) {
@@ -110,6 +196,14 @@ String.prototype.alternateCase = function () {
 	 return this.split(/(?!^)/).map(changeCase).join('');
 };
 
+/**
+  * @method getMiddle
+  *
+  * Returns chracter(s) in the middle of a string.
+  *
+  * @param {String}
+  * @return {String}
+  */
 String.prototype.getMiddle = function () {
   'use strict';
 	var result = this.split(/(?!^)/);
@@ -122,6 +216,14 @@ String.prototype.getMiddle = function () {
 	return result[parseInt(length)].toString();
 };
 
+/**
+  * @method isDigit
+  *
+  * Returns checks if a string is a single digit.
+  *
+  * @param {String}
+  * @return {Boolean} returns true/false
+  */
 String.prototype.isDigit = function () {
   'use strict';
 	var digitExp = /^\d{1}$/;
@@ -129,6 +231,14 @@ String.prototype.isDigit = function () {
 	return digitExp.test(this);
 };
 
+/**
+  * @method numberWords
+  *
+  * Returns the words for each number in a string.
+  *
+  * @param {String}
+  * @return {String}
+  */
 String.prototype.numberWords = function () {
 	var match = function (digit) {
 		var words = ['zero', 'one', 'two', 'three', 'four',
@@ -144,6 +254,14 @@ String.prototype.numberWords = function () {
 	throw new Error('improper input format');
 };
 
+/**
+  * @method doubleCheck
+  *
+  * Checks if a string contains double characters.
+  *
+  * @param {String}
+  * @return {Boolean} returns true or false
+  */
 String.prototype.doubleCheck = function () {
   'use strict';
 	var doubleExp = /(\w)\1{1}/;

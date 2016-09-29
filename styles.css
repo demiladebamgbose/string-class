@@ -8,14 +8,13 @@ body{
   float: none;
   height: 500px;
   padding: 20px;
-
-
 }
 
 nav{
   margin: 40px;  display:block;
   margin: 20px;
 }
+
 nav ul li a{
   border-bottom:  2px solid white;
 }
