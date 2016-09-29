@@ -26,9 +26,9 @@ String.prototype.toUpper = function () {
   var lowerExp = /[a-z]/g;
 
   return this.replace(lowerExp, function (letter) {
-  	letter = String.fromCharCode(letter.charCodeAt(letter) - 32);
+    letter = String.fromCharCode(letter.charCodeAt(letter) - 32);
 
-  	return letter;
+    return letter;
   });
 };
 
@@ -45,9 +45,9 @@ String.prototype.toLower = function () {
   var upperExp = /[A-Z]/g;
 
   return this.replace(upperExp, function (letter) {
-  	letter = String.fromCharCode(letter.charCodeAt(letter) + 32);
+    letter = String.fromCharCode(letter.charCodeAt(letter) + 32);
 
-  	return letter;
+    return letter;
   });
 };
 
@@ -77,9 +77,9 @@ String.prototype.ucFirst = function () {
   */
 String.prototype.isQuestion = function () {
   'use strict';
-	var queExp = /^.+\?$/;
+  var queExp = /^.+\?$/;
 
-	return queExp.test(this);
+  return queExp.test(this);
 };
 
 /**
@@ -111,7 +111,8 @@ String.prototype.words = function () {
   */
 String.prototype.wordCount = function() {
   'use strict';
-	return this.words().length;
+
+  return this.words().length;
 };
 
 /**
@@ -126,9 +127,9 @@ String.prototype.toCurrency = function () {
   'use strict';
   if (/^(\d*\.\d{2})$/.test(this)) {
     var value = this.split(/\./);
-  	var currExp = /\B(?=(\d{3})+$)/g;
+    var currExp = /\B(?=(\d{3})+$)/g;
 
-  	value[0] = value[0].replace(currExp, ',');
+    value[0] = value[0].replace(currExp, ',');
 
     return value.join('.');
   }
@@ -146,11 +147,11 @@ String.prototype.toCurrency = function () {
   */
 String.prototype.fromCurrency = function() {
   'use strict';
-	if (/^[\d,]+\.\d{2}$/.test(this)) {
-		return parseFloat(this.split(/,/g).join(''));
-	}
+  if (/^[\d,]+\.\d{2}$/.test(this)) {
+    return parseFloat(this.split(/,/g).join(''));
+  }
 
-	throw new Error('Improper input format');
+  throw new Error('Improper input format');
 };
 
 /**
@@ -164,15 +165,14 @@ String.prototype.fromCurrency = function() {
 String.prototype.inverseCase = function () {
   'use strict';
   var switchCase = function (letter) {
+    if (/[A-Z]/.test(letter)) {
+      return letter.toLower();
+    }
 
-	  if (/[A-Z]/.test(letter)) {
-		  return letter.toLower();
-	  }
+    return letter.toUpper();
+  };
 
-	  return letter.toUpper();
-	};
-
-	 return this.split(/(?!^)/).map(switchCase).join('');
+  return this.split(/(?!^)/).map(switchCase).join('');
 };
 
 /**
@@ -186,14 +186,14 @@ String.prototype.inverseCase = function () {
 String.prototype.alternateCase = function () {
   'use strict';
   var changeCase = function (letter, index) {
-	  if (index % 2 === 0) {
-		  return letter.toLower();
-	  }
+    if (index % 2 === 0) {
+      return letter.toLower();
+    }
 
-	  return letter.toUpper();
-	};
+    return letter.toUpper();
+  };
 
-	 return this.split(/(?!^)/).map(changeCase).join('');
+  return this.split(/(?!^)/).map(changeCase).join('');
 };
 
 /**
@@ -206,14 +206,14 @@ String.prototype.alternateCase = function () {
   */
 String.prototype.getMiddle = function () {
   'use strict';
-	var result = this.split(/(?!^)/);
-	var length = result.length/2;
+  var result = this.split(/(?!^)/);
+  var length = result.length/2;
 
-	if (result.length % 2 === 0) {
-		return result.slice((length)-1, (length)+1).join('');
-	}
+  if (result.length % 2 === 0) {
+    return result.slice((length)-1, (length)+1).join('');
+  }
 
-	return result[parseInt(length)].toString();
+  return result[parseInt(length)].toString();
 };
 
 /**
@@ -226,9 +226,9 @@ String.prototype.getMiddle = function () {
   */
 String.prototype.isDigit = function () {
   'use strict';
-	var digitExp = /^\d{1}$/;
+  var digitExp = /^\d{1}$/;
 
-	return digitExp.test(this);
+  return digitExp.test(this);
 };
 
 /**
@@ -240,18 +240,17 @@ String.prototype.isDigit = function () {
   * @return {String}
   */
 String.prototype.numberWords = function () {
-	var match = function (digit) {
-		var words = ['zero', 'one', 'two', 'three', 'four',
-     'five', 'six', 'seven', 'eight', 'nine'];
+  var match = function (digit) {
+    var words = ['zero', 'one', 'two', 'three', 'four',
+      'five', 'six', 'seven', 'eight', 'nine'];
 
-		return words[parseInt(digit)];
-	};
+    return words[parseInt(digit)];
+  };
+  if (/^\d+$/.test(this)) {
+    return this.split(/(?!^)/).map(match).join(' ');
+  }
 
-	if (/^\d+$/.test(this)) {
-		return this.split(/(?!^)/).map(match).join(' ');
-	}
-
-	throw new Error('improper input format');
+  throw new Error('improper input format');
 };
 
 /**
@@ -264,7 +263,7 @@ String.prototype.numberWords = function () {
   */
 String.prototype.doubleCheck = function () {
   'use strict';
-	var doubleExp = /(\w)\1{1}/;
+  var doubleExp = /(\w)\1{1}/;
 
-	return doubleExp.test(this);
+  return doubleExp.test(this);
 };
