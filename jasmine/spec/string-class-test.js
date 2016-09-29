@@ -1,5 +1,5 @@
 describe('String Class', function () {
-
+'use strict';
   describe('hasVowels function', function () {
     it('should return true if a string contains a vowel', function () {
       expect('Dry ace'.hasVowels()).toBe(true);
@@ -37,9 +37,10 @@ describe('String Class', function () {
   describe('isQuestion function',function () {
     it('should return true for questions',function () {
       expect('Where?'.isQuestion()).toBeTruthy();
+      expect('With whom ?'.isQuestion()).toBeTruthy();
     });
     it('should return false for a statement',function () {
-      expect('A big crowd.'.isQuestion()).toBeFalsy();
+      expect('A big? crowd.'.isQuestion()).toBeFalsy();
       expect('?'.isQuestion()).toBeFalsy();
     });
   });
@@ -47,7 +48,7 @@ describe('String Class', function () {
   describe('words function', function () {
     it('should return an array of all the words in a string', function () {
       expect(Array.isArray('Oliver Twist'.words())).toBe(true);
-      expect('This is sugar'.words()).toEqual(['This', 'is', 'sugar']);
+      expect('This is $ & &# @!sugar'.words()).toEqual(['This', 'is', 'sugar']);
       expect(''.words()).toEqual([]);
     });
   });
@@ -56,13 +57,14 @@ describe('String Class', function () {
     it('should return the number of words in a string', function () {
       expect('I was here'.wordCount()).toBe(3);
       expect(''.wordCount()).toBe(0);
+      expect('It is () so ^% $% true'.wordCount()).toBe(4);
     });
   });
 
   describe('toCurrency function', function () {
     it('should return the currency representation of a string', function () {
       expect('111111.11'.toCurrency()).toBe('111,111.11');
-      expect('1.11'.toCurrency()).toBe('1.11');
+      expect('2231.11'.toCurrency()).toBe('2,231.11');
     });
     it('should throw an error for an improperly formated string', function () {
       expect(function () {
@@ -122,9 +124,9 @@ describe('String Class', function () {
     it('should return the words for each digit in a string', function () {
       expect('456'.numberWords()).toBe('four five six');
     });
-    it('should throw an error if string contains letters', function () {
+    it('should throw an error if string contains letters or sym', function () {
       expect(function () {
-        'gr89!'.numberWords();
+        'asdf!'.numberWords();
       }).toThrow(new Error('improper input format'));
     });
   });

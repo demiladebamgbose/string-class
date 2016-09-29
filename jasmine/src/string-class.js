@@ -1,15 +1,13 @@
 
 String.prototype.hasVowels = function () {
-  var vowelExp = /[a|e|i|o|u]/i;
+  'use strict';
+  var vowelExp = /[aeiou]/i;
 
-  if (vowelExp.test(this)) {
-    return true;
-  }
-
-  return false;
+  return vowelExp.test(this);
 };
 
 String.prototype.toUpper = function () {
+  'use strict';
   var lowerExp = /[a-z]/g;
 
   return this.replace(lowerExp, function (letter) {
@@ -20,6 +18,7 @@ String.prototype.toUpper = function () {
 };
 
 String.prototype.toLower = function () {
+  'use strict';
   var upperExp = /[A-Z]/g;
 
   return this.replace(upperExp, function (letter) {
@@ -30,6 +29,7 @@ String.prototype.toLower = function () {
 };
 
 String.prototype.ucFirst = function () {
+  'use strict';
   var first = this.substring(0,1).toUpper();
   var body = this.substring(1).toLower();
 
@@ -37,30 +37,37 @@ String.prototype.ucFirst = function () {
 };
 
 String.prototype.isQuestion = function () {
-	var queExp = /.+(\?)$/;
+  'use strict';
+	var queExp = /^.+\?$/;
 
 	return queExp.test(this);
 };
 
 String.prototype.words = function () {
+  'use strict';
   if (this.length > 0){
-    return this.replace(/\s+/g, " ").split(/\s/);
+
+    return this.replace(/[^a-zA-Z0-9\s]/g, '')
+      .replace(/\s+/g, ' ').split(/\s/);
   }
 
   return [];
 };
 
 String.prototype.wordCount = function() {
+  'use strict';
 	return this.words().length;
 };
 
 String.prototype.toCurrency = function () {
+  'use strict';
   if (/^(\d*\.\d{2})$/.test(this)) {
     var value = this.split(/\./);
   	var currExp = /\B(?=(\d{3})+$)/g;
-
+    console.log(value);
   	value[0] = value[0].replace(currExp, ',');
-
+    console.log(value[0]);
+    console.log(value);
     return value.join('.');
   }
 
@@ -68,6 +75,7 @@ String.prototype.toCurrency = function () {
 };
 
 String.prototype.fromCurrency = function() {
+  'use strict';
 	if (/^[\d,]+\.\d{2}$/.test(this)) {
 		return parseFloat(this.split(/,/g).join(''));
 	}
@@ -76,6 +84,7 @@ String.prototype.fromCurrency = function() {
 };
 
 String.prototype.inverseCase = function () {
+  'use strict';
   var switchCase = function (letter) {
 
 	  if (/[A-Z]/.test(letter)) {
@@ -89,6 +98,7 @@ String.prototype.inverseCase = function () {
 };
 
 String.prototype.alternateCase = function () {
+  'use strict';
   var changeCase = function (letter, index) {
 	  if (index % 2 === 0) {
 		  return letter.toLower();
@@ -101,10 +111,11 @@ String.prototype.alternateCase = function () {
 };
 
 String.prototype.getMiddle = function () {
+  'use strict';
 	var result = this.split(/(?!^)/);
 	var length = result.length/2;
 
-	if (length % 2 === 0) {
+	if (result.length % 2 === 0) {
 		return result.slice((length)-1, (length)+1).join('');
 	}
 
@@ -112,6 +123,7 @@ String.prototype.getMiddle = function () {
 };
 
 String.prototype.isDigit = function () {
+  'use strict';
 	var digitExp = /^\d{1}$/;
 
 	return digitExp.test(this);
@@ -133,6 +145,7 @@ String.prototype.numberWords = function () {
 };
 
 String.prototype.doubleCheck = function () {
+  'use strict';
 	var doubleExp = /(\w)\1{1}/;
 
 	return doubleExp.test(this);

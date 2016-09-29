@@ -1,0 +1,33 @@
+body{
+  padding-top: 20px;
+}
+.container-fluid {
+  background-color: #eee;
+  width: 1000px;
+  margin: auto;
+  float: none;
+  height: 500px;
+  padding: 20px;
+
+
+}
+
+nav{
+  margin: 40px;  display:block;
+  margin: 20px;
+}
+nav ul li a{
+  border-bottom:  2px solid white;
+}
+
+div{
+  margin: 20px;
+  display: block;
+}
+
+input{
+  border: none;
+  height: 40px;
+  width: 200px;
+  text-align: center;
+}
