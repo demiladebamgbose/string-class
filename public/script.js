@@ -30,10 +30,11 @@
     */
   var callMethods = function (methodName) {
     try {
-      showResult(getDomContent('stringInput')[methodName]());
+      showResult(methodName + '<br>' +
+        getDomContent('stringInput')[methodName]());
     }
     catch (error) {
-      showResult(error);
+      showResult(methodName + '<br>' + error);
     }
   };
 
