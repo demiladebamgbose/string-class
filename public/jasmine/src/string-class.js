@@ -68,7 +68,7 @@
     * @return {Array}
     */
   String.prototype.words = function () {
-    if (this.length){
+    if (this.length) {
       return this.replace(/[^a-zA-Z0-9\s]/g, '')
         .replace(/\s+/g, ' ').split(/\s/);
     }
@@ -97,11 +97,12 @@
 
     val = val.split(/\./);
     val[0] = val[0].replace(/\B(?=(\d{3})+$)/g, ',');
-    if(val[1]){
+    if (val[1]) {
       val[1] = val[1].substring(0, 2);
 
       return val.join('.');
     }
+
     return val[0] + '.00';
   };
 
@@ -111,7 +112,7 @@
     * @param {String}
     * @return {String}
     */
-  String.prototype.fromCurrency = function() {
+  String.prototype.fromCurrency = function () {
     if (/^[\d,]+\.\d{2}$/.test(this)) {
       return parseFloat(this.split(/,/g).join(''));
     }
