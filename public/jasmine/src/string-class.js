@@ -20,7 +20,6 @@
 
     return this.replace(lowerExp, function (letter) {
       letter = String.fromCharCode(letter.charCodeAt(letter) - 32);
-
       return letter;
     });
   };
@@ -70,7 +69,6 @@
     */
   String.prototype.words = function () {
     if (this.length){
-
       return this.replace(/[^a-zA-Z0-9\s]/g, '')
         .replace(/\s+/g, ' ').split(/\s/);
     }
@@ -95,16 +93,16 @@
     * @return {String}
     */
   String.prototype.toCurrency = function () {
-    if (/^(\d*\.\d{2})$/.test(this)) {
-      var value = this.split(/\./);
-      var currExp = /\B(?=(\d{3})+$)/g;
+    var val = this.replace(/[^\d\.]/g, '');
 
-      value[0] = value[0].replace(currExp, ',');
+    val = val.split(/\./);
+    val[0] = val[0].replace(/\B(?=(\d{3})+$)/g, ',');
+    if(val[1]){
+      val[1] = val[1].substring(0, 2);
 
-      return value.join('.');
+      return val.join('.');
     }
-
-    throw new Error('Improper input format');
+    return val[0] + '.00';
   };
 
   /**
@@ -202,6 +200,7 @@
       }
       return character;
     };
+
       return this.split(/(?!^)/).map(match).join(' ').replace(/\s+/g, ' ');
   };
 
@@ -212,6 +211,6 @@
     * @return {Boolean} returns true or false
     */
   String.prototype.doubleCheck = function () {
-    return /(\w)\1{1}/.test(this);
+    return /(\w)\1/.test(this);
   };
 })();
