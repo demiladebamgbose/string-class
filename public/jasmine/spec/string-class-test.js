@@ -123,11 +123,7 @@ describe('String Class', function () {
   describe('numberWords function', function () {
     it('should return the words for each digit in a string', function () {
       expect('456'.numberWords()).toBe('four five six');
-    });
-    it('should throw an error if string contains letters or sym', function () {
-      expect(function () {
-        'asdf!'.numberWords();
-      }).toThrow(new Error('improper input format'));
+      expect('old 789'.numberWords()).toBe('o l d seven eight nine');
     });
   });
 
