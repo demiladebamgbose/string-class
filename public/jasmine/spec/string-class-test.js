@@ -65,14 +65,9 @@ describe('String Class', function () {
     it('should return the currency representation of a string', function () {
       expect('111111.11'.toCurrency()).toBe('111,111.11');
       expect('2231.11'.toCurrency()).toBe('2,231.11');
-    });
-    it('should throw an error for an improperly formated string', function () {
-      expect(function () {
-          'ddd'.toCurrency();
-        }).toThrow(new Error('Improper input format'));
-      expect(function () {
-          '!!345bc'.toCurrency();
-        }).toThrow(new Error('Improper input format'));
+      expect('1234'.toCurrency()).toBe('1,234.00');
+      expect('N12$@34..45'.toCurrency()).toBe('1,234.00');
+
     });
   });
 
