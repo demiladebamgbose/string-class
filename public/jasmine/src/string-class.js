@@ -1,8 +1,9 @@
 (function () {
+  'use strict';
+
   /**
     * @method hasVowels
     * Checks if a string contains vowels.
-    * @param {String}
     * @return {Bolean} returns true/false
     */
   String.prototype.hasVowels = function () {
@@ -12,14 +13,12 @@
   /**
     * @method toUpper
     * Returns uppercase of characters in a string.
-    * @param {String}
     * @return {String}
     */
   String.prototype.toUpper = function () {
-    var lowerExp = /[a-z]/g;
-
-    return this.replace(lowerExp, function (letter) {
+    return this.replace(/[a-z]/g, function (letter) {
       letter = String.fromCharCode(letter.charCodeAt(letter) - 32);
+
       return letter;
     });
   };
@@ -27,13 +26,10 @@
   /**
     * @method toLower
     * Returns lower case of characters in a string.
-    * @param {String}
     * @return {String}
     */
   String.prototype.toLower = function () {
-    var upperExp = /[A-Z]/g;
-
-    return this.replace(upperExp, function (letter) {
+    return this.replace(/[A-Z]/g, function (letter) {
       letter = String.fromCharCode(letter.charCodeAt(letter) + 32);
 
       return letter;
@@ -43,18 +39,17 @@
   /**
     * @method ucFirst
     * Returns a string with the first character capitalized.
-    * @param {String}
     * @return {String}
     */
   String.prototype.ucFirst = function () {
-    var result = this.substring(0,1).toUpper() + this.substring(1).toLower();
+    var result = this.substring(0, 1).toUpper() + this.substring(1).toLower();
+
     return result;
   };
 
   /**
     * @method isQuestion
     * Checks if a string is a question.
-    * @param {String}
     * @return {Boolean} returns true/false
     */
   String.prototype.isQuestion = function () {
@@ -64,7 +59,6 @@
   /**
     * @method words
     * Returns an array of the words in a string.
-    * @param {String}
     * @return {Array}
     */
   String.prototype.words = function () {
@@ -79,7 +73,6 @@
   /**
     * @method wordCount
     * The number of words in a string.
-    * @param {String}
     * @return {Number}
     */
   String.prototype.wordCount = function() {
@@ -89,7 +82,6 @@
   /**
     * @method toCurrency
     * Returns the currency representation  of a string.
-    * @param {String}
     * @return {String}
     */
   String.prototype.toCurrency = function () {
@@ -109,7 +101,6 @@
   /**
     * @method fromCurrency
     * Returns the number equivalent of a currency string.
-    * @param {String}
     * @return {String}
     */
   String.prototype.fromCurrency = function () {
@@ -123,7 +114,6 @@
   /**
     * @method inverseCase
     * Returns a string in inverse case.
-    * @param {String}
     * @return {String}
     */
   String.prototype.inverseCase = function () {
@@ -141,7 +131,6 @@
   /**
     * @method alternateCase
     * Returns a sting in alternting cases.
-    * @param {String}
     * @return {String}
     */
   String.prototype.alternateCase = function () {
@@ -159,7 +148,6 @@
   /**
     * @method getMiddle
     * Returns chracter(s) in the middle of a string.
-    * @param {String}
     * @return {String}
     */
   String.prototype.getMiddle = function () {
@@ -176,7 +164,6 @@
   /**
     * @method isDigit
     * Returns checks if a string is a single digit.
-    * @param {String}
     * @return {Boolean} returns true/false
     */
   String.prototype.isDigit = function () {
@@ -188,17 +175,19 @@
   /**
     * @method numberWords
     * Returns the words for each number in a string.
-    * @param {String}
     * @return {String}
     */
   String.prototype.numberWords = function () {
     var match = function (character) {
       if (/\d/.test(character)) {
-        var words = ['zero', 'one', 'two', 'three', 'four',
-          'five', 'six', 'seven', 'eight', 'nine'];
+        var words = [
+          'zero', 'one', 'two', 'three', 'four',
+          'five', 'six', 'seven', 'eight', 'nine'
+        ];
 
         return words[parseInt(character)];
       }
+
       return character;
     };
 
@@ -208,7 +197,6 @@
   /**
     * @method doubleCheck
     * Checks if a string contains double characters.
-    * @param {String}
     * @return {Boolean} returns true or false
     */
   String.prototype.doubleCheck = function () {
